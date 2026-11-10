@@ -6,7 +6,7 @@ public class FuncionarioCLT extends Funcionario{
 
     public FuncionarioCLT(int codigo, String nome, String cpf, double salarioBase, double beneficios) {
         super(codigo, nome, cpf);
-        this.salarioBase = salarioBase;
+        setSalarioBase(salarioBase);
         this.beneficios = beneficios;
     }
 
@@ -15,6 +15,11 @@ public class FuncionarioCLT extends Funcionario{
     }
 
     public void setSalarioBase(double salarioBase) {
+        if(salarioBase < 0){
+            throw new IllegalArgumentException("O salário base não pode ser negativo");
+        } else {
+            this.salarioBase = salarioBase;
+        }
         this.salarioBase = salarioBase;
     }
 
