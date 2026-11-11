@@ -1,6 +1,7 @@
 package repository;
 
 import exception.FuncionarioJaCadastradoException;
+import exception.FuncionarioNaoEncontradoException;
 import model.Funcionario;
 
 import java.util.ArrayList;
@@ -19,5 +20,19 @@ public class FuncionarioRepository {
         }
         funcionarios.add(funcionario);
 
+    }
+
+    public Funcionario buscarPorCodigo(int codigo){
+        for (Funcionario f : funcionarios){
+            if (f.getCodigo() == codigo){
+                return f;
+            }
+        }
+        throw new FuncionarioNaoEncontradoException("Funcionário não encontrado com código: " + codigo);
+    }
+
+    public void remover(int codigo){
+        Funcionario funcionarioParaRemover = buscarPorCodigo(codigo);
+        funcionarios.remove(funcionarioParaRemover);
     }
 }
