@@ -22,11 +22,32 @@ public class FuncionarioCLTTest {
 
     }
 
+    @Test
     public void naoDevePermitirSalarioBaseNegativo(){
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             new FuncionarioCLT(2, "Thiago","123.456.789-00", -1000.0, 500.0);
         });
 
-        assertEquals("O salario base não pode ser negativo", exception.getMessage());
+        assertEquals("O salário base não pode ser negativo", exception.getMessage());
     }
-}
+
+    @Test
+    public void naoDevePermitirBeneficioNegativo(){
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            new FuncionarioCLT(3,"Robertinho","123.456.789-00", 5000.0, -1000.0);
+        });
+        assertEquals("Os benefícios não podem ser negativos",exception.getMessage());
+    }
+
+    @Test
+    public void deveCalcularTributosCorretamente(){
+        FuncionarioCLT funcionario = new FuncionarioCLT(9,"Katia","123.456.789-00",4000.0, 500.0);
+
+        double tributos = funcionario.calcularTributo();
+
+        assertEquals(450, tributos, "Os tributos do CLT devem ser 10% da remuneração");
+    }
+
+
+    }
+
