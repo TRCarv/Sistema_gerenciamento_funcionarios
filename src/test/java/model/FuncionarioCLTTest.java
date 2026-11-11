@@ -48,6 +48,14 @@ public class FuncionarioCLTTest {
         assertEquals(450, tributos, "Os tributos do CLT devem ser 10% da remuneração");
     }
 
+    @Test
+    public void naoDevePermitirCpfInvalido(){
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            new FuncionarioCLT(1, "João", "12345678900", 2000.0, 500.0);
+        });
+        assertEquals("CPF inválido. O formato deve ser XXX.XXX.XXX-XX", exception.getMessage());
+    }
+
 
     }
 

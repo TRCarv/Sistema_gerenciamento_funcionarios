@@ -35,4 +35,8 @@ public class FuncionarioRepository {
         Funcionario funcionarioParaRemover = buscarPorCodigo(codigo);
         funcionarios.remove(funcionarioParaRemover);
     }
+
+    public java.util.List<model.Funcionario> listarTodos(){
+        return funcionarios;
+    }
 }

@@ -27,7 +27,10 @@ public abstract class Funcionario implements Identificavel {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(String cpf){
+        if (cpf == null || !cpf.matches("\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}")){
+            throw new IllegalArgumentException("CPF inválido. O formato deve ser XXX.XXX.XXX-XX");
+        }
         this.cpf = cpf;
     }
 
@@ -45,16 +48,18 @@ public abstract class Funcionario implements Identificavel {
     public Funcionario(int codigo, String nome, String cpf, double salarioBase) {
         this.codigo = codigo;
         this.nome = nome;
-        this.cpf = cpf;
+        setCpf(cpf);
         setSalarioBase(salarioBase);
     }
 
     public Funcionario (int codigo, String nome, String cpf){
         this.codigo = codigo;
         this.nome = nome;
-        this.cpf = cpf;
+        setCpf(cpf);
     }
 
 
     public abstract double calcularRemuneracao();
+
+
 }
