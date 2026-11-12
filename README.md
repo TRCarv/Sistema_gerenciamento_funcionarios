@@ -1,6 +1,6 @@
 # Sistema de Gerenciamento de Funcionários e Folha de Pagamento
 
-# Este projeto é uma aplicação de linha de comando (CLI) em Java desenvolvida como atividade avaliativa da disciplina de orientação a objetos. O sistema gerencia o cadastro de diferentes tipos de funcionários e realiza o cálculo da folha de pagamento, aplicando rigorosamente os pilares da Orientação a Objetos e os princípios do Test-Driven Development (TDD).
+Este projeto é uma aplicação de linha de comando (CLI) em Java desenvolvida como atividade avaliativa da disciplina de orientação a objetos. O sistema gerencia o cadastro de diferentes tipos de funcionários e realiza o cálculo da folha de pagamento, aplicando rigorosamente os pilares da Orientação a Objetos e os princípios do Test-Driven Development (TDD).
 
 ## Tecnologias e Conceitos Utilizados
 * **Linguagem:** Java
