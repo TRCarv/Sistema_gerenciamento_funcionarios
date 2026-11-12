@@ -50,4 +50,8 @@ public class FuncionarioService {
         }
         return totalFolha;
     }
+
+    public java.util.List<model.Funcionario> listarTodos() {
+        return repository.listarTodos();
+    }
 }
